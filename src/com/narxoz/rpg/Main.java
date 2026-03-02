@@ -46,5 +46,21 @@ public class Main {
         }
 
         System.out.println("\n=== Demo Complete ===");
+
+        enemies.add(new EnemyCombatantAdapter(new Goblin()));
+        enemies.get(1).takeDamage(-20);
+
+        result = engineA.runEncounter(heroes, enemies);
+
+        System.out.println("Battle Summary:");
+        System.out.println("---------------");
+        for (String line : result.getBattleLog()) {
+            System.out.println(line);
+        }
+        System.out.println("---------------");
+        System.out.println("Winner: " + result.getWinner());
+        System.out.println("Total Rounds: " + result.getRounds());
+
+        System.out.println("\n=== Demo Complete ===");
     }
 }
